@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sự kiện bàn phím</title>
+</head>
+<body onload="doReady()">
+<img src="1.png" width="188" height="210" id="image" style="position: absolute; top: 0px; left: 0px">
+    <script>
+        function upArrowPress() {
+            let element  = document.getElementById("image");
+            element.style.top = parseInt(element.style.top) - 5 + 'px';
+        }
+        function downArrowPress() {
+            let element = document.getElementById("image");
+            element.style.top =  parseInt(element.style.top) + 5 + 'px';
+        }
+        function rightArrowPress() {
+            let element = document.getElementById("image");
+            element.style.left = parseInt(element.style.left) + 5 + 'px';
+        }
+        function leftArrowPress() {
+            let element = document.getElementById("image");
+            element.style.left = parseInt(element.style.left) - 5 + 'px';
+        }
+        function moveSelection(evt) {
+            switch (evt.keyCode){
+                    case 37 :
+                        leftArrowPress();
+                        break;
+                    case 38 :
+                        upArrowPress();
+                        break;
+                    case 39 :
+                        rightArrowPress();
+                        break;
+                    case 40 :
+                        downArrowPress();
+                        break;
+            }
+        }
+        function doReady() {
+            window.addEventListener("keydown",moveSelection);
+        }
+    </script>
+</body>
+</html>
